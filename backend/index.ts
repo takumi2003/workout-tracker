@@ -1,13 +1,13 @@
-//npx ts-node index.ts
+import { JsonWebKey } from "crypto";
 
-import express from 'express'
-const app: express.Express = express()
-const port = 3001
+const express = require("express");
+const cors = require("cors");  // CORSのインポート
+const app = express();
 
-app.get('/', (_req, res) => {
-  res.send('Hello World!')
-})
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+
+app.get("/", function (req: any, res: any) {
+  res.send({test: "test"});
+});
+
+app.listen(3000, () => console.log("Example app listening on port 3000!"));
