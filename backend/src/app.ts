@@ -28,4 +28,19 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
+import db from './db';  // 既に定義されたデータベース接続プールをインポート
+
+async function testDbConnection() {
+  try {
+    const result = await db.query('SELECT 1');
+    console.log('Database connection successful:', result.rows);
+  } catch (error) {
+    console.error('Database connection failed:', error);
+  }
+}
+
+// アプリ起動時に接続を確認
+testDbConnection();
+
+
 export default app;
